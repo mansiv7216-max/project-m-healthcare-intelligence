@@ -1,0 +1,6 @@
+member_id,plan_type,state,eligibility_status
+M001,PPO,NJ,ACTIVE
+M002,HMO,NY,ACTIVE
+M003,PPO,NJ,ACTIVE
+M004,HMO,PA,INACTIVE
+M005,PPO,NY,ACTIVE

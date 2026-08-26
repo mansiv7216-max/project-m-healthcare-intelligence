@@ -1,0 +1,25 @@
+Advanced Imaging Coverage Policy
+
+Policy ID: POL-IMG-001
+
+Advanced imaging services such as MRI may be covered when medically necessary
+and when all applicable administrative requirements are satisfied.
+
+Coverage requirements:
+
+1. The member must have active eligibility on the date of service.
+
+2. The provider should be in network unless an approved exception applies.
+
+3. The claim must contain a diagnosis supporting medical necessity.
+
+4. Procedure code 70553 requires prior authorization.
+
+5. Procedure code 70551 may require prior authorization depending on the
+clinical condition and plan rules.
+
+6. MRI procedures may be considered medically necessary for qualifying
+neurological conditions when supporting clinical documentation is available.
+
+If prior authorization is required but not present, the claim should be routed
+for additional review and may be denied depending on plan rules.

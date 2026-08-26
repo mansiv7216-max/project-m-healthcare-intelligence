@@ -1,0 +1,5 @@
+provider_id,provider_name,provider_type,state,in_network
+P001,Horizon Radiology,Radiology,NJ,true
+P002,Metro Orthopedics,Orthopedics,NY,true
+P003,Eastside Neurology,Neurology,NJ,true
+P004,Capital Imaging Center,Radiology,PA,false
