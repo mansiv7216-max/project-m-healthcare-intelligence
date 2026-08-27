@@ -39,3 +39,51 @@ def get_claim_graph_context(claim_id: str):
             "policy": dict(record["policy"]) if record["policy"] else None,
             "requirement": dict(record["req"]) if record["req"] else None,
         }
+def get_procedure_graph_context(procedure_code: str):
+    """
+    Retrieve structured policy relationships for a procedure code.
+
+    Used by Mode B graph-grounded RAG.
+    This performs graph retrieval only and does not apply
+    deterministic validation or decision rules.
+    """
+
+    query = """
+    MATCH (proc:Procedure {code: $procedure_code})
+    OPTIONAL MATCH (proc)-[:GOVERNED_BY]->(policy:Policy)
+    OPTIONAL MATCH (policy)-[:REQUIRES]->(req:Requirement)
+
+    RETURN
+        proc,
+        policy,
+        req
+    """
+
+    with db.driver.session(database=db.database) as session:
+        result = session.run(
+            query,
+            procedure_code=procedure_code,
+        )
+
+        record = result.single()
+
+        if record is None:
+            return None
+
+        return {
+            "procedure": (
+                dict(record["proc"])
+                if record["proc"]
+                else None
+            ),
+            "policy": (
+                dict(record["policy"])
+                if record["policy"]
+                else None
+            ),
+            "requirement": (
+                dict(record["req"])
+                if record["req"]
+                else None
+            ),
+        }
