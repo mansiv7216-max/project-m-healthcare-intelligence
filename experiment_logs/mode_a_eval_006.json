@@ -1,0 +1,54 @@
+{
+  "experiment_id": "mode_a_eval_006",
+  "timestamp_utc": "2026-08-27T23:10:51.819544+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 2.42,
+    "ollama_created_at": "2026-08-27T23:10:51.818759Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Does procedure 70551 have the same prior authorization rule as procedure 70553?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.8259,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.8205,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.4922,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 219,
+    "eval_count": 37,
+    "total_duration_ns": 2417708792,
+    "load_duration_ns": 1946875,
+    "prompt_eval_duration_ns": 754357000,
+    "eval_duration_ns": 1647398000
+  },
+  "output": {
+    "text": "No, procedure code 70551 may require prior authorization depending on the clinical condition and plan rules, while procedure code 70553 requires prior authorization."
+  }
+}

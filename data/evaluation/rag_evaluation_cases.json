@@ -1,0 +1,44 @@
+[
+  {
+    "case_id": "EVAL_001",
+    "category": "exact_evidence",
+    "question": "Does procedure 70553 require prior authorization?",
+    "expected_behavior": "ANSWER",
+    "expected_fact": "Procedure 70553 requires prior authorization."
+  },
+  {
+    "case_id": "EVAL_002",
+    "category": "near_confusable_entity",
+    "question": "Does procedure 70551 always require prior authorization?",
+    "expected_behavior": "ANSWER",
+    "expected_fact": "Procedure 70551 may require prior authorization depending on the clinical condition and plan rules."
+  },
+  {
+    "case_id": "EVAL_003",
+    "category": "unsupported_procedure",
+    "question": "Does procedure 72148 require prior authorization?",
+    "expected_behavior": "ABSTAIN",
+    "expected_fact": null
+  },
+  {
+    "case_id": "EVAL_004",
+    "category": "unsupported_external_knowledge",
+    "question": "What does Medicare require for procedure 70553?",
+    "expected_behavior": "ABSTAIN",
+    "expected_fact": null
+  },
+  {
+    "case_id": "EVAL_005",
+    "category": "policy_consequence",
+    "question": "What should happen if required prior authorization is not present?",
+    "expected_behavior": "ANSWER",
+    "expected_fact": "The claim should be routed for additional review and may be denied depending on plan rules."
+  },
+  {
+    "case_id": "EVAL_006",
+    "category": "entity_confusion",
+    "question": "Does procedure 70551 have the same prior authorization rule as procedure 70553?",
+    "expected_behavior": "ANSWER",
+    "expected_fact": "No. Procedure 70553 requires prior authorization, while 70551 may require it depending on clinical condition and plan rules."
+  }
+]
