@@ -140,7 +140,126 @@ def run_mode_c_experiment(
     print(answer)
 
     return artifact
+def run_mode_c_assertion_experiment(
+    procedure_code: str,
+    question: str,
+    authority: str | None = None,
+    experiment_id: str = "mode_c_assertion_001",
+) -> dict:
+    """
+    Mode C assertion-validation path.
 
+    The deterministic evidence layer decides whether the requested
+    relationship is supported before the LLM is allowed to respond.
+    """
+
+    from app.services.evidence_service import validate_procedure_assertion
+
+    validation = validate_procedure_assertion(
+        procedure_code=procedure_code,
+        authority=authority,
+    )
+
+    # Hard evidence boundary: unsupported assertions never reach
+    # unconstrained generation.
+    if not validation["supported"]:
+        answer = (
+            "I do not have enough validated evidence to determine "
+            f"{authority}'s requirement for procedure {procedure_code}."
+        )
+
+        artifact = {
+            "experiment_id": experiment_id,
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "mode": "C_bounded_assertion",
+            "metadata": {
+                "model": MODEL_NAME,
+                "temperature": TEMPERATURE,
+                "generation_invoked": False,
+            },
+            "inputs": {
+                "question": question,
+                "procedure_code": procedure_code,
+                "authority": authority,
+            },
+            "validation": validation,
+            "output": {
+                "decision": "ABSTAIN",
+                "text": answer,
+            },
+        }
+
+    else:
+        user_prompt = (
+            "VALIDATED EVIDENCE:\n"
+            f"{json.dumps(validation, indent=2)}\n\n"
+            f"QUESTION:\n{question}"
+        )
+
+        payload = {
+            "model": MODEL_NAME,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": SYSTEM_PROMPT,
+                },
+                {
+                    "role": "user",
+                    "content": user_prompt,
+                },
+            ],
+            "stream": False,
+            "options": {
+                "temperature": TEMPERATURE,
+                "num_predict": 400,
+            },
+        }
+
+        response = requests.post(
+            OLLAMA_URL,
+            json=payload,
+            timeout=120,
+        )
+
+        response.raise_for_status()
+
+        response_data = response.json()
+        answer = response_data["message"]["content"]
+
+        artifact = {
+            "experiment_id": experiment_id,
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "mode": "C_bounded_assertion",
+            "metadata": {
+                "model": MODEL_NAME,
+                "temperature": TEMPERATURE,
+                "generation_invoked": True,
+            },
+            "inputs": {
+                "question": question,
+                "procedure_code": procedure_code,
+                "authority": authority,
+            },
+            "validation": validation,
+            "output": {
+                "decision": "ANSWER",
+                "text": answer,
+            },
+        }
+
+    LOG_DIR.mkdir(exist_ok=True)
+
+    log_path = LOG_DIR / f"{experiment_id}.json"
+
+    with log_path.open("w", encoding="utf-8") as file:
+        json.dump(artifact, file, indent=2, ensure_ascii=False)
+
+    print(f"\nExperiment saved: {log_path}")
+    print(f"Validation: {validation['reason']}")
+    print(f"Generation invoked: {artifact['metadata']['generation_invoked']}")
+    print(f"\nGenerated answer:\n{artifact['output']['text']}")
+
+    return artifact
 
 if __name__ == "__main__":
     run_mode_c_experiment(
