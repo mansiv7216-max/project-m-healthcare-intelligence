@@ -227,3 +227,6 @@ __pycache__/
 # Generated experiment artifacts
 experiment_logs/*.json
 experiment_logs/*.csv
+
+# Generated experiment artifacts
+experiment_logs/
