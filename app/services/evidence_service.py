@@ -65,3 +65,50 @@ def build_validated_evidence_package(claim_id: str):
             "must_abstain_if_evidence_incomplete": True,
         },
     }
+def validate_procedure_assertion(
+    procedure_code: str,
+    authority: str | None = None,
+) -> dict:
+    """
+    Validate whether the requested procedure/policy assertion
+    is supported by the structured knowledge graph.
+
+    This does not ask the LLM to infer missing relationships.
+    """
+
+    from app.graph.queries import get_procedure_graph_context
+
+    graph_context = get_procedure_graph_context(procedure_code)
+
+    if graph_context is None:
+        return {
+            "supported": False,
+            "reason": "PROCEDURE_NOT_FOUND",
+            "procedure_code": procedure_code,
+            "authority": authority,
+            "graph_context": None,
+        }
+
+    policy = graph_context.get("policy")
+    requirement = graph_context.get("requirement")
+
+    # Current graph contains procedure -> policy -> requirement,
+    # but no validated authority relationship such as Medicare.
+    if authority:
+        return {
+            "supported": False,
+            "reason": "AUTHORITY_RELATIONSHIP_NOT_VALIDATED",
+            "procedure_code": procedure_code,
+            "authority": authority,
+            "graph_context": graph_context,
+        }
+
+    return {
+        "supported": True,
+        "reason": "GRAPH_ASSERTION_VALIDATED",
+        "procedure_code": procedure_code,
+        "authority": None,
+        "policy": policy,
+        "requirement": requirement,
+        "graph_context": graph_context,
+    }
