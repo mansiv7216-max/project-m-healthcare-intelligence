@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from app.services.claims_service import get_claim
 from app.services.context_service import get_decision_context
+from app.graph.queries import get_claim_graph_context
 app = FastAPI(
     title="Project M",
     description="Enterprise Knowledge Graph for Healthcare Decision Intelligence",
