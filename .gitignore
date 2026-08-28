@@ -223,3 +223,7 @@ __marimo__/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Generated experiment artifacts
+experiment_logs/*.json
+experiment_logs/*.csv
