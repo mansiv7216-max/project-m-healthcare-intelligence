@@ -1,0 +1,71 @@
+{
+  "experiment_id": "benchmark_eval_019_mode_b",
+  "timestamp_utc": "2026-08-28T04:10:28.821514+00:00",
+  "mode": "B_graph_grounded_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 2.153,
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Does federal policy require prior authorization for procedure 70553?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. The context may contain semantic document evidence and structured knowledge graph evidence. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "procedure_codes": [
+      "70553"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.8016,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.7902,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5702,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ],
+    "graph_context": {
+      "70553": {
+        "procedure": {
+          "code": "70553"
+        },
+        "policy": {
+          "policy_id": "POL-IMG-001",
+          "title": "Advanced Imaging Coverage Policy"
+        },
+        "requirement": {
+          "name": "Prior Authorization"
+        },
+        "authorization_rule": {
+          "type": "REQUIRED",
+          "condition": null
+        }
+      }
+    }
+  },
+  "usage": {
+    "prompt_eval_count": 335,
+    "eval_count": 21,
+    "total_duration_ns": 2150718834
+  },
+  "output": {
+    "text": "Yes, according to the provided information, procedure code 70553 requires prior authorization."
+  }
+}

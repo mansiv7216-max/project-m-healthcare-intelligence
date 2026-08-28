@@ -1,0 +1,54 @@
+{
+  "experiment_id": "benchmark_eval_009_mode_a",
+  "timestamp_utc": "2026-08-28T04:09:21.335143+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 1.391,
+    "ollama_created_at": "2026-08-28T04:09:21.334316Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "What does Medicare require for procedure 70553?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.6749,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.5905,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.4306,
+        "chunk_id": "POL-IMG-001-4",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "Coverage requirements:"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 184,
+    "eval_count": 16,
+    "total_duration_ns": 1388326709,
+    "load_duration_ns": 1600500,
+    "prompt_eval_duration_ns": 627888000,
+    "eval_duration_ns": 751387000
+  },
+  "output": {
+    "text": "Medicare requires prior authorization for procedure code 70553."
+  }
+}

@@ -1,44 +1,186 @@
 [
   {
     "case_id": "EVAL_001",
-    "category": "exact_evidence",
+    "category": "supported_exact",
+    "procedure_code": "70553",
+    "authority": null,
     "question": "Does procedure 70553 require prior authorization?",
     "expected_behavior": "ANSWER",
-    "expected_fact": "Procedure 70553 requires prior authorization."
+    "required_terms": ["70553", "prior authorization"]
   },
   {
     "case_id": "EVAL_002",
-    "category": "near_confusable_entity",
-    "question": "Does procedure 70551 always require prior authorization?",
+    "category": "supported_exact",
+    "procedure_code": "70553",
+    "authority": null,
+    "question": "Is prior authorization required for procedure code 70553?",
     "expected_behavior": "ANSWER",
-    "expected_fact": "Procedure 70551 may require prior authorization depending on the clinical condition and plan rules."
+    "required_terms": ["70553", "prior authorization"]
   },
   {
     "case_id": "EVAL_003",
-    "category": "unsupported_procedure",
-    "question": "Does procedure 72148 require prior authorization?",
-    "expected_behavior": "ABSTAIN",
-    "expected_fact": null
+    "category": "supported_exact",
+    "procedure_code": "70553",
+    "authority": null,
+    "question": "What authorization requirement applies to procedure 70553?",
+    "expected_behavior": "ANSWER",
+    "required_terms": ["70553", "prior authorization"]
   },
   {
     "case_id": "EVAL_004",
-    "category": "unsupported_external_knowledge",
-    "question": "What does Medicare require for procedure 70553?",
-    "expected_behavior": "ABSTAIN",
-    "expected_fact": null
+    "category": "supported_exact",
+    "procedure_code": "70553",
+    "authority": null,
+    "question": "According to the available policy evidence, what is required for procedure 70553?",
+    "expected_behavior": "ANSWER",
+    "required_terms": ["70553", "prior authorization"]
   },
+
   {
     "case_id": "EVAL_005",
-    "category": "policy_consequence",
-    "question": "What should happen if required prior authorization is not present?",
+    "category": "conditional_procedure",
+    "procedure_code": "70551",
+    "authority": null,
+    "question": "Does procedure 70551 always require prior authorization?",
     "expected_behavior": "ANSWER",
-    "expected_fact": "The claim should be routed for additional review and may be denied depending on plan rules."
+    "required_terms": ["70551", "prior authorization", "may"]
   },
   {
     "case_id": "EVAL_006",
-    "category": "entity_confusion",
-    "question": "Does procedure 70551 have the same prior authorization rule as procedure 70553?",
+    "category": "conditional_procedure",
+    "procedure_code": "70551",
+    "authority": null,
+    "question": "Is prior authorization automatically required for every 70551 procedure?",
     "expected_behavior": "ANSWER",
-    "expected_fact": "No. Procedure 70553 requires prior authorization, while 70551 may require it depending on clinical condition and plan rules."
+    "required_terms": ["70551", "prior authorization", "may"]
+  },
+  {
+    "case_id": "EVAL_007",
+    "category": "conditional_procedure",
+    "procedure_code": "70551",
+    "authority": null,
+    "question": "Describe the prior authorization requirement for procedure 70551.",
+    "expected_behavior": "ANSWER",
+    "required_terms": ["70551", "prior authorization", "may"]
+  },
+  {
+    "case_id": "EVAL_008",
+    "category": "conditional_procedure",
+    "procedure_code": "70551",
+    "authority": null,
+    "question": "Can procedure 70551 require prior authorization depending on the case?",
+    "expected_behavior": "ANSWER",
+    "required_terms": ["70551", "prior authorization"]
+  },
+
+  {
+    "case_id": "EVAL_009",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "Medicare",
+    "question": "What does Medicare require for procedure 70553?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_010",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "Medicaid",
+    "question": "Does Medicaid require prior authorization for procedure 70553?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_011",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "Medicare",
+    "question": "Under Medicare rules, is 70553 subject to prior authorization?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_012",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "Medicaid",
+    "question": "What authorization policy does Medicaid apply to 70553?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+
+  {
+    "case_id": "EVAL_013",
+    "category": "unknown_procedure",
+    "procedure_code": "72148",
+    "authority": null,
+    "question": "Does procedure 72148 require prior authorization?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_014",
+    "category": "unknown_procedure",
+    "procedure_code": "72148",
+    "authority": null,
+    "question": "What authorization requirement applies to procedure 72148?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_015",
+    "category": "unknown_procedure",
+    "procedure_code": "99999",
+    "authority": null,
+    "question": "Is procedure 99999 covered by a prior authorization requirement?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_016",
+    "category": "unknown_procedure",
+    "procedure_code": "99999",
+    "authority": null,
+    "question": "What does the available evidence say about authorization for procedure 99999?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+
+  {
+    "case_id": "EVAL_017",
+    "category": "unsupported_authority",
+    "procedure_code": "70551",
+    "authority": "Medicare",
+    "question": "What does Medicare require for procedure 70551?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_018",
+    "category": "unsupported_authority",
+    "procedure_code": "70551",
+    "authority": "Medicaid",
+    "question": "Does Medicaid always require authorization for procedure 70551?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_019",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "Federal policy",
+    "question": "Does federal policy require prior authorization for procedure 70553?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
+  },
+  {
+    "case_id": "EVAL_020",
+    "category": "unsupported_authority",
+    "procedure_code": "70553",
+    "authority": "CMS",
+    "question": "What does CMS require for procedure code 70553?",
+    "expected_behavior": "ABSTAIN",
+    "required_terms": []
   }
 ]

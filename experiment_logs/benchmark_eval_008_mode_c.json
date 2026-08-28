@@ -1,0 +1,61 @@
+{
+  "experiment_id": "benchmark_eval_008_mode_c",
+  "timestamp_utc": "2026-08-28T04:09:18.478145+00:00",
+  "mode": "C_bounded_assertion",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "generation_invoked": true,
+    "latency_seconds": 1.673,
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "question": "Can procedure 70551 require prior authorization depending on the case?",
+    "procedure_code": "70551",
+    "authority": null,
+    "semantic_instruction": "The validated authorization rule is CONDITIONAL. You must preserve that wording. Do not say that authorization is always required, automatically required, universally required, mandatory in every case, or unconditional. The validated condition is: Depends on clinical condition and plan rules."
+  },
+  "validation": {
+    "supported": true,
+    "reason": "GRAPH_ASSERTION_CONDITIONAL",
+    "procedure_code": "70551",
+    "authority": null,
+    "evidence_complete": true,
+    "policy": {
+      "policy_id": "POL-IMG-001",
+      "title": "Advanced Imaging Coverage Policy"
+    },
+    "requirement": {
+      "name": "Prior Authorization"
+    },
+    "authorization_rule": {
+      "type": "CONDITIONAL",
+      "condition": "Depends on clinical condition and plan rules."
+    },
+    "graph_context": {
+      "procedure": {
+        "code": "70551"
+      },
+      "policy": {
+        "policy_id": "POL-IMG-001",
+        "title": "Advanced Imaging Coverage Policy"
+      },
+      "requirement": {
+        "name": "Prior Authorization"
+      },
+      "authorization_rule": {
+        "type": "CONDITIONAL",
+        "condition": "Depends on clinical condition and plan rules."
+      }
+    }
+  },
+  "usage": {
+    "prompt_eval_count": 393,
+    "eval_count": 34,
+    "total_duration_ns": 1669462458
+  },
+  "output": {
+    "decision": "ANSWER",
+    "text": "Yes, procedure 70551 can require prior authorization depending on the case. The authorization rule is conditional and depends on the clinical condition and plan rules."
+  }
+}

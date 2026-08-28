@@ -1,0 +1,54 @@
+{
+  "experiment_id": "benchmark_eval_013_mode_a",
+  "timestamp_utc": "2026-08-28T04:09:48.004062+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 1.1,
+    "ollama_created_at": "2026-08-28T04:09:48.003251Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Does procedure 72148 require prior authorization?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.8338,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.8077,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5895,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 208,
+    "eval_count": 8,
+    "total_duration_ns": 1098420875,
+    "load_duration_ns": 1740291,
+    "prompt_eval_duration_ns": 766225000,
+    "eval_duration_ns": 317912000
+  },
+  "output": {
+    "text": "I do not have enough information."
+  }
+}

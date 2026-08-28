@@ -1,0 +1,61 @@
+{
+  "experiment_id": "mode_c_fix_test_70551",
+  "timestamp_utc": "2026-08-28T04:07:03.323431+00:00",
+  "mode": "C_bounded_assertion",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "generation_invoked": true,
+    "latency_seconds": 7.275,
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "question": "Does procedure 70551 always require prior authorization?",
+    "procedure_code": "70551",
+    "authority": null,
+    "semantic_instruction": "The validated authorization rule is CONDITIONAL. You must preserve that wording. Do not say that authorization is always required, automatically required, universally required, mandatory in every case, or unconditional. The validated condition is: Depends on clinical condition and plan rules."
+  },
+  "validation": {
+    "supported": true,
+    "reason": "GRAPH_ASSERTION_CONDITIONAL",
+    "procedure_code": "70551",
+    "authority": null,
+    "evidence_complete": true,
+    "policy": {
+      "policy_id": "POL-IMG-001",
+      "title": "Advanced Imaging Coverage Policy"
+    },
+    "requirement": {
+      "name": "Prior Authorization"
+    },
+    "authorization_rule": {
+      "type": "CONDITIONAL",
+      "condition": "Depends on clinical condition and plan rules."
+    },
+    "graph_context": {
+      "procedure": {
+        "code": "70551"
+      },
+      "policy": {
+        "policy_id": "POL-IMG-001",
+        "title": "Advanced Imaging Coverage Policy"
+      },
+      "requirement": {
+        "name": "Prior Authorization"
+      },
+      "authorization_rule": {
+        "type": "CONDITIONAL",
+        "condition": "Depends on clinical condition and plan rules."
+      }
+    }
+  },
+  "usage": {
+    "prompt_eval_count": 390,
+    "eval_count": 31,
+    "total_duration_ns": 7270118709
+  },
+  "output": {
+    "decision": "ANSWER",
+    "text": "No, procedure 70551 does not always require prior authorization. The requirement for prior authorization depends on the clinical condition and plan rules."
+  }
+}

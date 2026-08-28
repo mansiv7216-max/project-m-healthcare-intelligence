@@ -1,0 +1,27 @@
+{
+  "experiment_id": "benchmark_eval_016_mode_c",
+  "timestamp_utc": "2026-08-28T04:10:07.146603+00:00",
+  "mode": "C_bounded_assertion",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "generation_invoked": false
+  },
+  "inputs": {
+    "question": "What does the available evidence say about authorization for procedure 99999?",
+    "procedure_code": "99999",
+    "authority": null
+  },
+  "validation": {
+    "supported": false,
+    "reason": "PROCEDURE_NOT_FOUND",
+    "procedure_code": "99999",
+    "authority": null,
+    "evidence_complete": false,
+    "graph_context": null
+  },
+  "output": {
+    "decision": "ABSTAIN",
+    "text": "I do not have enough validated evidence to determine the requirement for procedure 99999."
+  }
+}

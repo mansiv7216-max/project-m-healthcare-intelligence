@@ -1,0 +1,54 @@
+{
+  "experiment_id": "benchmark_eval_005_mode_a",
+  "timestamp_utc": "2026-08-28T04:08:41.150167+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 1.897,
+    "ollama_created_at": "2026-08-28T04:08:41.149402Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Does procedure 70551 always require prior authorization?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.8857,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.858,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5643,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 208,
+    "eval_count": 26,
+    "total_duration_ns": 1894807709,
+    "load_duration_ns": 2133542,
+    "prompt_eval_duration_ns": 750896000,
+    "eval_duration_ns": 1132038000
+  },
+  "output": {
+    "text": "No, procedure code 70551 may not always require prior authorization depending on the clinical condition and plan rules."
+  }
+}

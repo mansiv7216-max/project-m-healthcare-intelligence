@@ -3,6 +3,13 @@ from app.services.decision_service import evaluate_claim
 
 
 def build_validated_evidence_package(claim_id: str):
+    """
+    Build the validated evidence package used by claim-level Mode C.
+
+    The LLM receives this package only after deterministic
+    claim evaluation has been completed.
+    """
+
     context = get_decision_context(claim_id)
     decision = evaluate_claim(claim_id)
 
@@ -65,15 +72,23 @@ def build_validated_evidence_package(claim_id: str):
             "must_abstain_if_evidence_incomplete": True,
         },
     }
+
+
 def validate_procedure_assertion(
     procedure_code: str,
     authority: str | None = None,
 ) -> dict:
     """
-    Validate whether the requested procedure/policy assertion
-    is supported by the structured knowledge graph.
+    Validate whether a requested procedure/policy assertion is
+    supported by the structured knowledge graph.
 
-    This does not ask the LLM to infer missing relationships.
+    The validation layer distinguishes:
+        - required authorization
+        - conditional authorization
+        - insufficient graph evidence
+        - unsupported authority attribution
+
+    The LLM is not used to infer missing relationships.
     """
 
     from app.graph.queries import get_procedure_graph_context
@@ -86,29 +101,77 @@ def validate_procedure_assertion(
             "reason": "PROCEDURE_NOT_FOUND",
             "procedure_code": procedure_code,
             "authority": authority,
+            "evidence_complete": False,
             "graph_context": None,
         }
 
+    procedure = graph_context.get("procedure")
     policy = graph_context.get("policy")
     requirement = graph_context.get("requirement")
+    authorization_rule = graph_context.get("authorization_rule")
 
-    # Current graph contains procedure -> policy -> requirement,
-    # but no validated authority relationship such as Medicare.
+    # Procedure may exist in the graph while having no validated
+    # policy or requirement relationship.
+    if (
+        procedure is None
+        or policy is None
+        or requirement is None
+        or authorization_rule is None
+    ):
+        return {
+            "supported": False,
+            "reason": "INSUFFICIENT_POLICY_EVIDENCE",
+            "procedure_code": procedure_code,
+            "authority": authority,
+            "evidence_complete": False,
+            "graph_context": graph_context,
+        }
+
+    # The current graph does not establish Medicare, Medicaid,
+    # CMS, federal policy, or other external authorities.
     if authority:
         return {
             "supported": False,
             "reason": "AUTHORITY_RELATIONSHIP_NOT_VALIDATED",
             "procedure_code": procedure_code,
             "authority": authority,
+            "evidence_complete": False,
+            "graph_context": graph_context,
+        }
+
+    rule_type = authorization_rule.get("type")
+    condition = authorization_rule.get("condition")
+
+    if rule_type == "REQUIRED":
+        validation_reason = "GRAPH_ASSERTION_REQUIRED"
+
+    elif rule_type == "CONDITIONAL":
+        validation_reason = "GRAPH_ASSERTION_CONDITIONAL"
+
+    else:
+        return {
+            "supported": False,
+            "reason": "AUTHORIZATION_RULE_NOT_VALIDATED",
+            "procedure_code": procedure_code,
+            "authority": None,
+            "evidence_complete": False,
             "graph_context": graph_context,
         }
 
     return {
         "supported": True,
-        "reason": "GRAPH_ASSERTION_VALIDATED",
+        "reason": validation_reason,
         "procedure_code": procedure_code,
         "authority": None,
+        "evidence_complete": True,
+
         "policy": policy,
         "requirement": requirement,
+
+        "authorization_rule": {
+            "type": rule_type,
+            "condition": condition,
+        },
+
         "graph_context": graph_context,
     }

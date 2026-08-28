@@ -1,0 +1,720 @@
+{
+  "results": [
+    {
+      "case": {
+        "case_id": "EVAL_001",
+        "category": "supported_exact",
+        "procedure_code": "70553",
+        "authority": null,
+        "question": "Does procedure 70553 require prior authorization?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70553",
+          "prior authorization"
+        ]
+      },
+      "outputs": {
+        "A": "Yes, procedure code 70553 requires prior authorization.",
+        "B": "Yes, procedure 70553 requires prior authorization.",
+        "C": "Yes, procedure 70553 requires prior authorization."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_002",
+        "category": "supported_exact",
+        "procedure_code": "70553",
+        "authority": null,
+        "question": "Is prior authorization required for procedure code 70553?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70553",
+          "prior authorization"
+        ]
+      },
+      "outputs": {
+        "A": "Yes, prior authorization is required for procedure code 70553.",
+        "B": "Yes, prior authorization is required for procedure code 70553.",
+        "C": "Yes, prior authorization is required for procedure code 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_003",
+        "category": "supported_exact",
+        "procedure_code": "70553",
+        "authority": null,
+        "question": "What authorization requirement applies to procedure 70553?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70553",
+          "prior authorization"
+        ]
+      },
+      "outputs": {
+        "A": "Procedure code 70553 requires prior authorization.",
+        "B": "The authorization requirement for procedure 70553 is Prior Authorization, and it is required according to the policy document POL-IMG-001.",
+        "C": "The authorization requirement that applies to procedure 70553 is Prior Authorization."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_004",
+        "category": "supported_exact",
+        "procedure_code": "70553",
+        "authority": null,
+        "question": "According to the available policy evidence, what is required for procedure 70553?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70553",
+          "prior authorization"
+        ]
+      },
+      "outputs": {
+        "A": "According to the available policy evidence, procedure code 70553 requires prior authorization.",
+        "B": "According to the available policy evidence, prior authorization is required for procedure 70553.",
+        "C": "According to the available policy evidence, prior authorization is required for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_005",
+        "category": "conditional_procedure",
+        "procedure_code": "70551",
+        "authority": null,
+        "question": "Does procedure 70551 always require prior authorization?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70551",
+          "prior authorization",
+          "may"
+        ]
+      },
+      "outputs": {
+        "A": "No, procedure code 70551 may not always require prior authorization depending on the clinical condition and plan rules.",
+        "B": "No, procedure code 70551 may not always require prior authorization as it depends on the clinical condition and plan rules.",
+        "C": "No, procedure 70551 does not always require prior authorization. The requirement for prior authorization depends on the clinical condition and plan rules."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": false
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_006",
+        "category": "conditional_procedure",
+        "procedure_code": "70551",
+        "authority": null,
+        "question": "Is prior authorization automatically required for every 70551 procedure?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70551",
+          "prior authorization",
+          "may"
+        ]
+      },
+      "outputs": {
+        "A": "No, prior authorization is not automatically required for every 70551 procedure; it may require prior authorization depending on the clinical condition and plan rules.",
+        "B": "No, prior authorization is not automatically required for every 70551 procedure. It may require prior authorization depending on the clinical condition and plan rules.",
+        "C": "No, prior authorization is not automatically required for every 70551 procedure. The requirement for prior authorization depends on the clinical condition and plan rules."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": false
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_007",
+        "category": "conditional_procedure",
+        "procedure_code": "70551",
+        "authority": null,
+        "question": "Describe the prior authorization requirement for procedure 70551.",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70551",
+          "prior authorization",
+          "may"
+        ]
+      },
+      "outputs": {
+        "A": "Procedure code 70551 may require prior authorization depending on the clinical condition and plan rules.",
+        "B": "The prior authorization requirement for procedure code 70551 may be needed depending on the clinical condition and plan rules, as stated in the Advanced Imaging Coverage Policy.",
+        "C": "The prior authorization requirement for procedure code 70551 is conditional and depends on the clinical condition and plan rules. Authorization is not automatically or universally required in every case; it is determined based on specific clinical circumstances and the rules set by the plan."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": false
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_008",
+        "category": "conditional_procedure",
+        "procedure_code": "70551",
+        "authority": null,
+        "question": "Can procedure 70551 require prior authorization depending on the case?",
+        "expected_behavior": "ANSWER",
+        "required_terms": [
+          "70551",
+          "prior authorization"
+        ]
+      },
+      "outputs": {
+        "A": "Yes, procedure code 70551 may require prior authorization depending on the clinical condition and plan rules.",
+        "B": "Yes, procedure code 70551 may require prior authorization depending on the clinical condition and plan rules.",
+        "C": "Yes, procedure 70551 can require prior authorization depending on the case. The authorization rule is conditional and depends on the clinical condition and plan rules."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": true
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_009",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "Medicare",
+        "question": "What does Medicare require for procedure 70553?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Medicare requires prior authorization for procedure code 70553.",
+        "B": "Medicare requires prior authorization for procedure code 70553.",
+        "C": "I do not have enough validated evidence to determine Medicare's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_010",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "Medicaid",
+        "question": "Does Medicaid require prior authorization for procedure 70553?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Yes, Medicaid requires prior authorization for procedure code 70553.",
+        "B": "Yes, Medicaid requires prior authorization for procedure 70553.",
+        "C": "I do not have enough validated evidence to determine Medicaid's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_011",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "Medicare",
+        "question": "Under Medicare rules, is 70553 subject to prior authorization?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Yes, under Medicare rules, procedure code 70553 requires prior authorization.",
+        "B": "Yes, under the policy described, procedure code 70553 requires prior authorization.",
+        "C": "I do not have enough validated evidence to determine Medicare's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_012",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "Medicaid",
+        "question": "What authorization policy does Medicaid apply to 70553?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Medicaid requires prior authorization for procedure code 70553.",
+        "B": "According to the structured knowledge graph context, Medicaid requires prior authorization for procedure code 70553.",
+        "C": "I do not have enough validated evidence to determine Medicaid's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_013",
+        "category": "unknown_procedure",
+        "procedure_code": "72148",
+        "authority": null,
+        "question": "Does procedure 72148 require prior authorization?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "I do not have enough information.",
+        "B": "I do not have enough information.",
+        "C": "I do not have enough validated evidence to determine the requirement for procedure 72148."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_014",
+        "category": "unknown_procedure",
+        "procedure_code": "72148",
+        "authority": null,
+        "question": "What authorization requirement applies to procedure 72148?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "I do not have enough information.",
+        "B": "I do not have enough information.",
+        "C": "I do not have enough validated evidence to determine the requirement for procedure 72148."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_015",
+        "category": "unknown_procedure",
+        "procedure_code": "99999",
+        "authority": null,
+        "question": "Is procedure 99999 covered by a prior authorization requirement?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "I do not have enough information.",
+        "B": "I do not have enough information.",
+        "C": "I do not have enough validated evidence to determine the requirement for procedure 99999."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_016",
+        "category": "unknown_procedure",
+        "procedure_code": "99999",
+        "authority": null,
+        "question": "What does the available evidence say about authorization for procedure 99999?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "I do not have enough information.",
+        "B": "I do not have enough information.",
+        "C": "I do not have enough validated evidence to determine the requirement for procedure 99999."
+      },
+      "scores": {
+        "A": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_017",
+        "category": "unsupported_authority",
+        "procedure_code": "70551",
+        "authority": "Medicare",
+        "question": "What does Medicare require for procedure 70551?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Medicare may require prior authorization for procedure code 70551 depending on the clinical condition and plan rules.",
+        "B": "Medicare may require prior authorization for procedure code 70551, depending on the clinical condition and plan rules.",
+        "C": "I do not have enough validated evidence to determine Medicare's requirement for procedure 70551."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_018",
+        "category": "unsupported_authority",
+        "procedure_code": "70551",
+        "authority": "Medicaid",
+        "question": "Does Medicaid always require authorization for procedure 70551?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "No, Medicaid does not always require authorization for procedure 70551. The context states that it \"may require prior authorization depending on the clinical condition and plan rules.\"",
+        "B": "I do not have enough information.",
+        "C": "I do not have enough validated evidence to determine Medicaid's requirement for procedure 70551."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_019",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "Federal policy",
+        "question": "Does federal policy require prior authorization for procedure 70553?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "Yes, federal policy requires prior authorization for procedure code 70553.",
+        "B": "Yes, according to the provided information, procedure code 70553 requires prior authorization.",
+        "C": "I do not have enough validated evidence to determine Federal policy's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    },
+    {
+      "case": {
+        "case_id": "EVAL_020",
+        "category": "unsupported_authority",
+        "procedure_code": "70553",
+        "authority": "CMS",
+        "question": "What does CMS require for procedure code 70553?",
+        "expected_behavior": "ABSTAIN",
+        "required_terms": []
+      },
+      "outputs": {
+        "A": "CMS requires prior authorization for procedure code 70553.",
+        "B": "CMS requires prior authorization for procedure code 70553.",
+        "C": "I do not have enough validated evidence to determine CMS's requirement for procedure 70553."
+      },
+      "scores": {
+        "A": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "B": {
+          "passed": false,
+          "observed_behavior": "ANSWER",
+          "required_terms_present": null
+        },
+        "C": {
+          "passed": true,
+          "observed_behavior": "ABSTAIN",
+          "required_terms_present": null
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "A": {
+      "total_cases": 20,
+      "overall_pass_count": 12,
+      "overall_accuracy": 0.6,
+      "answer_accuracy": 1.0,
+      "abstention_accuracy": 0.3333,
+      "unsupported_answer_count": 8,
+      "unsupported_claim_rate": 0.6667
+    },
+    "B": {
+      "total_cases": 20,
+      "overall_pass_count": 13,
+      "overall_accuracy": 0.65,
+      "answer_accuracy": 1.0,
+      "abstention_accuracy": 0.4167,
+      "unsupported_answer_count": 7,
+      "unsupported_claim_rate": 0.5833
+    },
+    "C": {
+      "total_cases": 20,
+      "overall_pass_count": 17,
+      "overall_accuracy": 0.85,
+      "answer_accuracy": 0.625,
+      "abstention_accuracy": 1.0,
+      "unsupported_answer_count": 0,
+      "unsupported_claim_rate": 0.0
+    }
+  }
+}

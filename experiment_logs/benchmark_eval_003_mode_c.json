@@ -1,0 +1,61 @@
+{
+  "experiment_id": "benchmark_eval_003_mode_c",
+  "timestamp_utc": "2026-08-28T04:08:29.221531+00:00",
+  "mode": "C_bounded_assertion",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "generation_invoked": true,
+    "latency_seconds": 0.956,
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "question": "What authorization requirement applies to procedure 70553?",
+    "procedure_code": "70553",
+    "authority": null,
+    "semantic_instruction": "The validated authorization rule is REQUIRED. You may state that prior authorization is required."
+  },
+  "validation": {
+    "supported": true,
+    "reason": "GRAPH_ASSERTION_REQUIRED",
+    "procedure_code": "70553",
+    "authority": null,
+    "evidence_complete": true,
+    "policy": {
+      "policy_id": "POL-IMG-001",
+      "title": "Advanced Imaging Coverage Policy"
+    },
+    "requirement": {
+      "name": "Prior Authorization"
+    },
+    "authorization_rule": {
+      "type": "REQUIRED",
+      "condition": null
+    },
+    "graph_context": {
+      "procedure": {
+        "code": "70553"
+      },
+      "policy": {
+        "policy_id": "POL-IMG-001",
+        "title": "Advanced Imaging Coverage Policy"
+      },
+      "requirement": {
+        "name": "Prior Authorization"
+      },
+      "authorization_rule": {
+        "type": "REQUIRED",
+        "condition": null
+      }
+    }
+  },
+  "usage": {
+    "prompt_eval_count": 337,
+    "eval_count": 18,
+    "total_duration_ns": 953030708
+  },
+  "output": {
+    "decision": "ANSWER",
+    "text": "The authorization requirement that applies to procedure 70553 is Prior Authorization."
+  }
+}

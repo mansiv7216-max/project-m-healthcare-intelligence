@@ -1,0 +1,54 @@
+{
+  "experiment_id": "benchmark_eval_011_mode_a",
+  "timestamp_utc": "2026-08-28T04:09:34.899656+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 1.607,
+    "ollama_created_at": "2026-08-28T04:09:34.898835Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Under Medicare rules, is 70553 subject to prior authorization?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.7493,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.6791,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5218,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 212,
+    "eval_count": 19,
+    "total_duration_ns": 1607128625,
+    "load_duration_ns": 1771792,
+    "prompt_eval_duration_ns": 772031000,
+    "eval_duration_ns": 818436000
+  },
+  "output": {
+    "text": "Yes, under Medicare rules, procedure code 70553 requires prior authorization."
+  }
+}

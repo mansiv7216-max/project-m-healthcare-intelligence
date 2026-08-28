@@ -1,0 +1,71 @@
+{
+  "experiment_id": "benchmark_eval_006_mode_b",
+  "timestamp_utc": "2026-08-28T04:08:56.595197+00:00",
+  "mode": "B_graph_grounded_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 3.128,
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "Is prior authorization automatically required for every 70551 procedure?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. The context may contain semantic document evidence and structured knowledge graph evidence. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "procedure_codes": [
+      "70551"
+    ],
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.8354,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.8034,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5514,
+        "chunk_id": "POL-IMG-001-11",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "If prior authorization is required but not present, the claim should be routed\nfor additional review and may be denied depending on plan rules."
+      }
+    ],
+    "graph_context": {
+      "70551": {
+        "procedure": {
+          "code": "70551"
+        },
+        "policy": {
+          "policy_id": "POL-IMG-001",
+          "title": "Advanced Imaging Coverage Policy"
+        },
+        "requirement": {
+          "name": "Prior Authorization"
+        },
+        "authorization_rule": {
+          "type": "CONDITIONAL",
+          "condition": "Depends on clinical condition and plan rules."
+        }
+      }
+    }
+  },
+  "usage": {
+    "prompt_eval_count": 344,
+    "eval_count": 33,
+    "total_duration_ns": 3125375500
+  },
+  "output": {
+    "text": "No, prior authorization is not automatically required for every 70551 procedure. It may require prior authorization depending on the clinical condition and plan rules."
+  }
+}

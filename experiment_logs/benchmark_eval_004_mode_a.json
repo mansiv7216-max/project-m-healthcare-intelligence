@@ -1,0 +1,54 @@
+{
+  "experiment_id": "benchmark_eval_004_mode_a",
+  "timestamp_utc": "2026-08-28T04:08:32.513163+00:00",
+  "mode": "A_semantic_rag",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "top_k": 3,
+    "latency_seconds": 1.64,
+    "ollama_created_at": "2026-08-28T04:08:32.512393Z",
+    "done_reason": "stop"
+  },
+  "inputs": {
+    "query": "According to the available policy evidence, what is required for procedure 70553?",
+    "system_prompt": "You are an exact factual responder. Answer the user's question using ONLY the provided context. If the context does not contain enough information to answer, state 'I do not have enough information.' Do not use external knowledge.",
+    "retrieved_chunks": [
+      {
+        "rank": 1,
+        "similarity_score": 0.6966,
+        "chunk_id": "POL-IMG-001-9",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "5. Procedure code 70551 may require prior authorization depending on the\nclinical condition and plan rules."
+      },
+      {
+        "rank": 2,
+        "similarity_score": 0.6772,
+        "chunk_id": "POL-IMG-001-8",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "4. Procedure code 70553 requires prior authorization."
+      },
+      {
+        "rank": 3,
+        "similarity_score": 0.5046,
+        "chunk_id": "POL-IMG-001-7",
+        "source_id": "POL-IMG-001",
+        "source_type": "policy",
+        "text": "3. The claim must contain a diagnosis supporting medical necessity."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_eval_count": 199,
+    "eval_count": 20,
+    "total_duration_ns": 1638475916,
+    "load_duration_ns": 2084750,
+    "prompt_eval_duration_ns": 747013000,
+    "eval_duration_ns": 878661000
+  },
+  "output": {
+    "text": "According to the available policy evidence, procedure code 70553 requires prior authorization."
+  }
+}
