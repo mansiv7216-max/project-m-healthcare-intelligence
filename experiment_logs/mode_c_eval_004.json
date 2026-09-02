@@ -1,0 +1,37 @@
+{
+  "experiment_id": "mode_c_eval_004",
+  "timestamp_utc": "2026-08-28T03:00:29.073597+00:00",
+  "mode": "C_bounded_assertion",
+  "metadata": {
+    "model": "qwen2.5:7b-instruct",
+    "temperature": 0.0,
+    "generation_invoked": false
+  },
+  "inputs": {
+    "question": "What does Medicare require for procedure 70553?",
+    "procedure_code": "70553",
+    "authority": "Medicare"
+  },
+  "validation": {
+    "supported": false,
+    "reason": "AUTHORITY_RELATIONSHIP_NOT_VALIDATED",
+    "procedure_code": "70553",
+    "authority": "Medicare",
+    "graph_context": {
+      "procedure": {
+        "code": "70553"
+      },
+      "policy": {
+        "policy_id": "POL-IMG-001",
+        "title": "Advanced Imaging Coverage Policy"
+      },
+      "requirement": {
+        "name": "Prior Authorization"
+      }
+    }
+  },
+  "output": {
+    "decision": "ABSTAIN",
+    "text": "I do not have enough validated evidence to determine Medicare's requirement for procedure 70553."
+  }
+}
